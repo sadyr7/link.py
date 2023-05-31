@@ -12,13 +12,12 @@ data = []
 
 for x in notebook:
     td = x.find_all('td')
+    
+     title = td[1].text.strip()
+     price_c = td[2].text.strip()
+     price_d = td[3].text.strip()
 
-    if len(td) >= 5:
-        title = td[1].text.strip()
-        price_c = td[2].text.strip()
-        price_d = td[3].text.strip()
-
-        data.append([title, price_c, price_d])
+     data.append([title, price_c, price_d])
 
 with open('notebooks.csv', 'w') as file:
     writer = csv.writer(file)
